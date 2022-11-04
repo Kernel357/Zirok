@@ -12,3 +12,9 @@ This is the core of a dungeon (Dungeons are grids of rooms connected by doors) g
 - Configurable number of rooms
 
 - Configurable field size
+
+## How to use?
+Soon...
+
+## Contacts
+My mail: kernel2460@gmail.com

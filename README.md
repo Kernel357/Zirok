@@ -5,9 +5,9 @@ This is the core of a dungeon (Dungeons are grids of rooms connected by doors) g
 ## Features
 - Integration into your project
 
-- Support 8 room templates, you can also add them yourself
+- Support 8 room patterns, you can also add them yourself
 
-- You can control which templates will be include in your dungeon, and you can also control the number of rooms of a particular template in your dungeon.
+- You can control which patterns will be include in your dungeon, and you can also control the number of rooms of a particular pattern in your dungeon.
 
 - Configurable number of rooms
 

@@ -17,4 +17,4 @@ This is the core of a dungeon (Dungeons are grids of rooms connected by doors) g
 Soon...
 
 ## Contacts
-My mail: kernel2460@gmail.com
+- kernel2460@gmail.com

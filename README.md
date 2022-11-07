@@ -1,6 +1,6 @@
 # Project Zirok
 ## What is it?
-This is the core of a dungeon (Dungeons are grids of rooms connected by doors) generator based on a modified Random Walk algorithm. In this project, we followed the idea of ​​separating the core and the user interface. This means that the kernel can be easily integrated into your project. We used a small QT/C++ application to demonstrate the features of the core.
+This is the core of a dungeon (Dungeons are grids of rooms connected by doors) generator based on a modified Random Walk algorithm. In this project, we followed the idea of ​​separating the core and the user interface. This means that the Zirok core can be easily integrated into your project. We used a small QT/C++ application to demonstrate the features of the Zirok core.
 
 ## Features
 - Integration into your project

@@ -14,7 +14,8 @@ This is the core of a dungeon (Dungeons are grids of rooms connected by doors) g
 - Configurable field size
 
 ## How to use?
-Soon...
+If you want to test the Zirok core, you can download and run the stable build core + UI.
 
+If you are interested in the internal architecture of the Zirok core, you can take a look at the files located in the Documents folder. There will also be instructions for integrating the Zirok core into your project.
 ## Contacts
 - kernel2460@gmail.com

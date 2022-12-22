@@ -18,5 +18,8 @@ If you want to test the Zirok core, you can download and run the stable build co
 
 If you are interested in the internal architecture of the Zirok core, you can take a look at the files located in the Documents folder. Also, in the documents folder, instructions for integrating the Zirok core into your project will be available.
 
+## Status:
+In the process...
+
 ## Contacts
 - kernel2460@gmail.com

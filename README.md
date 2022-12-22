@@ -11,6 +11,8 @@ This is the core of a dungeon (Dungeons are grids consisting of rooms connected 
 
 - Configurable number of rooms
 
+- Customizable dungeon shape
+
 - Configurable field size
 
 ## How to use?

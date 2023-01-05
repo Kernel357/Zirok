@@ -2,7 +2,7 @@
 ## What is it?
 This is the core of a dungeon (Dungeons are grids consisting of rooms connected doors) generator based on a modified Random Walk algorithm. In this project, we followed the idea of ​​separating the core and the user interface. This means that the Zirok core can be easily integrated into your project. We used a small QT/C++ application to demonstrate the features of the Zirok core.
 
-## Features
+## Features:
 - Integration into your project
 
 - Support 8 room patterns, you can also add them yourself
@@ -23,5 +23,5 @@ If you are interested in the internal architecture of the Zirok core, you can ta
 ## Status:
 In the process...
 
-## Contacts
+## Contacts:
 - kernel2460@gmail.com

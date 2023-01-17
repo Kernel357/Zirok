@@ -22,6 +22,3 @@ If you are interested in the internal architecture of the Zirok core, you can ta
 
 ## Status:
 In the process...
-
-## Contacts:
-- kernel2460@gmail.com

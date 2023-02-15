@@ -5,23 +5,18 @@ The term refers to a grid of rooms connected by doors. Quite often, dungeons are
 Project Zirok is a core that allows you to generate dungeons based on data entered into it (number of rooms, grid size, etc.).
 
 ## Features:
-- Integration into your project
-
-- Support 8 room patterns, you can also add them yourself
-
-- You can control which patterns will be include in your dungeon, and you can also control the number of rooms of a particular pattern in your dungeon.
-
+So far, not much has been implemented. Currently running:
+- Support for 1 of 8 basic patterns (the number of patterns will increase)
+- Configurable grid size
 - Configurable number of rooms
-
-- Customizable dungeon shape
-
-- Configurable field size
+- Scripts for building the kernel into a static library Linux (for subsequent integration of the library into your project)
 
 ## Building 
+Soon...
+
 ## How to use?
-If you want to test the Zirok core, you can download and run the stable build core + UI.
+Soon...
 
-If you are interested in the internal architecture of the Zirok core, you can take a look at the files located in the Documents folder. Also, in the documents folder, instructions for integrating the Zirok core into your project will be available.
-
-## Status:
-In the process...
+## Internal architecture
+If you are interested in the internal architecture of the Zirok core:
+[See Docs/InternalArchitecture.md](https://github.com/Kernel357/Zirok/blob/main/Docs/InternalArchitecture.md)

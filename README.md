@@ -1,6 +1,8 @@
 # Project Zirok
 ## What is it?
-This is the core of a dungeon (Dungeons are grids consisting of rooms connected doors) generator based on a modified Random Walk algorithm. In this project, we followed the idea of ​​separating the core and the user interface. This means that the Zirok core can be easily integrated into your project. We used a small QT/C++ application to demonstrate the features of the Zirok core.
+To begin with, it is worth introducing the definition of "Dungeon".
+The term refers to a grid of rooms connected by doors. Quite often, dungeons are used in roguelike games, games where random level generation is needed (new start - new dungeon).
+Project Zirok is a core that allows you to generate dungeons based on data entered into it (number of rooms, grid size, etc.).
 
 ## Features:
 - Integration into your project
@@ -15,6 +17,7 @@ This is the core of a dungeon (Dungeons are grids consisting of rooms connected 
 
 - Configurable field size
 
+## Building 
 ## How to use?
 If you want to test the Zirok core, you can download and run the stable build core + UI.
 

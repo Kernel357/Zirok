@@ -11,9 +11,6 @@ So far, not much has been implemented. Currently running:
 - Configurable number of rooms
 - Scripts for building the kernel into a static library Linux (for subsequent integration of the library into your project)
 
-## Building 
-Soon...
-
 ## How to use?
 Soon...
 

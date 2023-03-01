@@ -4,7 +4,7 @@ To begin with, it is worth introducing the definition of "Dungeon".
 The term refers to a grid of rooms connected by doors. Quite often, dungeons are used in roguelike games, games where random level generation is needed (new start - new dungeon).
 Project Zirok is a core that allows you to generate dungeons based on data entered into it (number of rooms, grid size, etc.).
 
-## Features:
+## Status:
 So far, not much has been implemented. Currently running:
 - Support for 1 of 8 basic patterns (the number of patterns will increase)
 - Configurable grid size

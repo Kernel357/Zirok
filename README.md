@@ -6,7 +6,7 @@ Project Zirok is a core that allows you to generate dungeons based on data enter
 
 ## Status:
 So far, not much has been implemented. Currently running:
-- Support for 1 of 8 basic patterns (the number of patterns will increase)
+- Support for 1 of 8 basic [patterns](https://github.com/Kernel357/Zirok/blob/main/Docs/InternalArchitecture.md) (the number of patterns will increase)
 - Configurable grid size
 - Configurable number of rooms
 - Scripts for building the kernel into a static library Linux (for subsequent integration of the library into your project)

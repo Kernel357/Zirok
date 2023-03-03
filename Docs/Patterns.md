@@ -8,3 +8,31 @@ The smallest pattern in the project, the chance of choosing it by default by a r
 
 This pattern looks like this:
 ![](https://github.com/Kernel357/Zirok/blob/main/Docs/Images/Pattern_1.png)
+
+## Pattern 2:
+
+Soon...
+
+## Pattern 3:
+
+Soon...
+
+## Pattern 4:
+
+Soon...
+
+## Pattern 5:
+
+Soon...
+
+## Pattern 6:
+
+Soon...
+
+## Pattern 7:
+
+Soon...
+
+## Pattern 8:
+
+Soon...

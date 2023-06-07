@@ -15,7 +15,7 @@ So far, not much has been implemented. Currently running:
 Soon...
 
 ## A small demonstration of work:
-![](https://github.com/Kernel357/Zirok/blob/main/Docs/Images/Demo.png)
+![](https://github.com/Kernel357/Zirok/blob/main/Docs/Images/Demo.jpg)
 ## Internal architecture:
 If you are interested in the internal architecture of the Zirok core:
 [See Docs/InternalArchitecture.md](https://github.com/Kernel357/Zirok/blob/main/Docs/InternalArchitecture.md)

@@ -16,6 +16,10 @@ Soon...
 
 ## A small demonstration of work:
 ![](https://github.com/Kernel357/Zirok/blob/main/Docs/Images/Demo.jpg)
+
 ## Internal architecture:
 If you are interested in the internal architecture of the Zirok core:
 [See Docs/InternalArchitecture.md](https://github.com/Kernel357/Zirok/blob/main/Docs/InternalArchitecture.md)
+
+## Gratitudes:
+For the early renders of the dungeons (graphical output does not exist yet), I want to say thanks to this person: ZIPPI#6320 (discord)

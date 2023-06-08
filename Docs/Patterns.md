@@ -11,28 +11,35 @@ This pattern looks like this:
 
 ## Pattern 2:
 
-Soon...
+This pattern looks like this:
+![](https://github.com/Kernel357/Zirok/blob/main/Docs/Images/Pattern_2.jpeg)
 
 ## Pattern 3:
 
-Soon...
+This pattern looks like this:
+![](https://github.com/Kernel357/Zirok/blob/main/Docs/Images/Pattern_3.jpeg)
 
 ## Pattern 4:
 
-Soon...
+This pattern looks like this:
+![](https://github.com/Kernel357/Zirok/blob/main/Docs/Images/Pattern_4.jpeg)
 
 ## Pattern 5:
 
-Soon...
+This pattern looks like this:
+![](https://github.com/Kernel357/Zirok/blob/main/Docs/Images/Pattern_5.jpeg)
 
 ## Pattern 6:
 
-Soon...
+This pattern looks like this:
+![](https://github.com/Kernel357/Zirok/blob/main/Docs/Images/Pattern_6.jpeg)
 
 ## Pattern 7:
 
-Soon...
+This pattern looks like this:
+![](https://github.com/Kernel357/Zirok/blob/main/Docs/Images/Pattern_7.jpeg)
 
 ## Pattern 8:
 
-Soon...
+This pattern looks like this:
+![](https://github.com/Kernel357/Zirok/blob/main/Docs/Images/Pattern_8.jpeg)

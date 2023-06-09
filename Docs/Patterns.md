@@ -4,12 +4,14 @@ A pattern is a room template that can be used in dungeon generation. Zirok has 8
 
 ## Pattern 1:
 
-The smallest pattern in the project, the chance of choosing it by default by a random library is high relative to other patterns. The starting room, from which the dungeon will be built, and the player will initially spawn there, will also be of the first pattern.
+The smallest pattern in the project, the chance of choosing it by default by a random library is high relative to other patterns. The starting room, from which the dungeon will be built, and the player will initially spawn there, will also be of the first pattern. The pattern consists of one cell.
 
 This pattern looks like this:
 ![](https://github.com/Kernel357/Zirok/blob/main/Docs/Images/Pattern_1.jpeg)
 
 ## Pattern 2:
+
+This pattern is the twin brother of the 3rd pattern. The chance of choosing this pattern by the random library is equal to the chance of the 3rd pattern. The pattern consists of 2 cells.
 
 This pattern looks like this:
 ![](https://github.com/Kernel357/Zirok/blob/main/Docs/Images/Pattern_2.jpeg)

@@ -1,6 +1,7 @@
 ## What is a pattern?
 
-A pattern is a room template that can be used in dungeon generation. Zirok has 8 basic patterns, and it will also be possible to expand. We adhere to the concept that in each room there can only be 4 doors, each of which leads in one of 4 directions (forward, left, right, back).
+A pattern is a room template that can be used in dungeon generation. Zirok has 8 basic patterns, and it will also be possible to expand. We adhere to the concept that in each room there can only be 4 doors, each of which leads in one of 4 directions (forward, left, right, back). I also want to introduce the concept of cell. Cell - part of the room, occupies one cell in the grid, a group of such cells, located on the grid in a certain way, makes up the pattern of the room.
+
 
 ## Pattern 1:
 

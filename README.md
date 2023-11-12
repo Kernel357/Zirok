@@ -10,6 +10,7 @@ So far, not much has been implemented. Currently running:
 - Configurable grid size
 - Configurable number of rooms
 - Scripts for building the core into a static library Linux (for subsequent integration of the library into your project)
+- First release coming soon... 
 
 ## How to use?
 Soon...

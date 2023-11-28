@@ -35,11 +35,6 @@ add_library(ZirokCore STATIC
   Core/BaseDef/BaseDef.h
   zirokcore.h
   ZirokCore_global.h
-
-  Docs/ErrorCode
-  Docs/Tasks
-  Docs/Rubbish
-  Docs/CompletedTasks
 )
 
 target_compile_definitions(ZirokCore PUBLIC ZIROKCORE_LIBRARY)

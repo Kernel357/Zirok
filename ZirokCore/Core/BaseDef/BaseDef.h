@@ -5,11 +5,9 @@
 #include <string>
 #include <vector>
 
-/*
- ================================
-   Base constants for Zirok Core
- ================================
-*/
+/*==============================
+  Base constants for Zirok Core
+ ==============================*/
 
 
 /* BASE TYPES */
@@ -24,7 +22,7 @@
 #define STRING_VIEW std::string_view
 
 
-/* CORE SERVICE */
+/* === CORE SERVICE === */
 
 #define LINE 0
 #define COLUMN 1
@@ -37,12 +35,12 @@
 #define NULL 0
 
 
-/* CLASSES ROOM */
+/* === CLASSES ROOM === */
 
 #define START_ROOM 1
 
 
-/* DOOR */
+/* === DOOR === */
 
 #define DOOR_1 1
 #define DOOR_2 2
@@ -54,12 +52,21 @@
 #define OCCUPIED 2
 #define OUT_OF_FIELD 3
 
+/* === PATTERNS === */
 
-/*
- =============
-   DEBUG LIB 
- =============
-*/
+#define PATTERN_1 1
+#define PATTERN_2 2
+#define PATTERN_3 3
+#define PATTERN_4 4
+#define PATTERN_5 5
+#define PATTERN_6 6
+#define PATTERN_7 7
+#define PATTERN_8 8
+
+
+/*==========
+  DEBUG LIB
+ ==========*/
 
 enum DEBUG_MESSANGE_TYPES
 {
@@ -71,11 +78,11 @@ enum DEBUG_MESSANGE_TYPES
 
 extern std::vector<DEBUG_MESSANGE_TYPES> EnabledDebugMessangeTypes;         // You can change the contents of this vector, thereby configuring the logging levels.
 
-/*
- ==========
-   STATUS 
- ==========
-*/
+
+
+/*=======
+  STATUS
+ =======*/
 
 enum STATUS
 {
@@ -95,9 +102,9 @@ enum STATUS
 
     //WARNINGS
     FAILURE_TO_CREATE_ROOM_COORDINATES_ALREADY_BUSY,                        //  Room creation error: Coordinates already taken.
-    FAILURE_TO_CREATE_ROOM_THE_DOOR_IN_THE_SELECTED_DIRECTION_IS_OPEN,      //  Room creation error: ...
-    FAILURE_TO_CREATE_ROOM_GOING_BEYOND_THE_FIELD,                          //  Room creation error: ...
-    FAILURE_TO_CREATE_ROOM_NO_FREE_CELLS,                                   //  Room creation error: ...
+    FAILURE_TO_CREATE_ROOM_THE_DOOR_IN_THE_SELECTED_DIRECTION_IS_OPEN,      //  Room creation error: The direction chosen by the library has already been used, the door is open.
+    FAILURE_TO_CREATE_ROOM_GOING_BEYOND_THE_FIELD,                          //  Room creation error: There was an exit from the field.
+    FAILURE_TO_CREATE_ROOM_NO_FREE_CELLS,                                   //  Room creation error: The number of remaining cells is less than the cells included in the pattern.
 
     //SERVICE INFO
     ROOM_HAS_BEEN_REMOVED,                                                  //  The room has been removed from the _SortedParentRooms vector.

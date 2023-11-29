@@ -2,12 +2,22 @@
  * This file contains the implementation of methods of the Generator class responsible for preparing the vector with rooms for use by RandomLib.
  * This is in particular the addition of new rooms to the vector, as well as their removal if the room has no free directions.
  */
-
-#include "Generator.h"
 #include <iostream>
+#include "Generator.h"
 
+/*
+ * VOID
+ * Generator::AddRoomToVector()
+ *
+ * The core uses this method to add new rooms to the _SortedParentRooms vector if they can become parents.
+ *
+ * @params:
+ *      shared_ptr<BaseRoomPattern> Room
+ *
+ * @return:
+*/
 VOID
-Generator::AddingRoomToVector(shared_ptr<BaseRoomPattern> Room)
+Generator::AddRoomToVector(shared_ptr<BaseRoomPattern> Room)
 {
     //Gathering information about the occupancy of the fields around the room
 
@@ -17,7 +27,7 @@ Generator::AddingRoomToVector(shared_ptr<BaseRoomPattern> Room)
 
     for(INT i = 1; i <= 4; i++)
     {
-        Coordinates = Room->SetOrGet_RoomCellCoordinates(1, i, 0);
+        Coordinates = Room->SetOrGet_RoomCellCoordinates(GET, i, NULL);
         Line = TranslateCoordinates(EDITABLE, LINE, Coordinates, NULL, NULL);
         Column = TranslateCoordinates(EDITABLE, COLUMN, Coordinates, NULL, NULL);
 
@@ -42,18 +52,17 @@ Generator::AddingRoomToVector(shared_ptr<BaseRoomPattern> Room)
             Column--;
         }
 
-        Coordinates = TranslateCoordinates(0, 0, 0, Line, Column);
+        Coordinates = TranslateCoordinates(COMPRESSED, NULL, NULL, Line, Column);
 
         if(IsOccupiedCoordinates(Coordinates) && Room->SetOrGet_OpenDoor(GET, i, NULL) != 1)
         {
             DebugPrintMessange(SERVICE_INFO, "Coordinates: %f is occupied and door is not open! \n", Coordinates);
-            Room->SetOrGet_OpenDoor(0, i, 2);
+            Room->SetOrGet_OpenDoor(SET, i, OCCUPIED);
         }
 
         else if(IsOutOfFieldCoordinates(Coordinates))
         {
-            //DebugPrintMessange(INFO, "Coordinates: %f is out of field! \n", Coordinates);
-            Room->SetOrGet_OpenDoor(0, i, 3);
+            Room->SetOrGet_OpenDoor(SET, i, OUT_OF_FIELD);
         }
     }
 
@@ -70,8 +79,19 @@ Generator::AddingRoomToVector(shared_ptr<BaseRoomPattern> Room)
     return;
 }
 
+/*
+ * VOID
+ * Generator::CheckRoom()
+ *
+ * The core uses this method to checks rooms for the possibility of being parent rooms and deletes them if the condition is not met.
+ *
+ * @params:
+ *      INT Room
+ *
+ * @return:
+*/
 VOID
-Generator::CheckingRoom(INT Room)
+Generator::CheckRoom(INT Room)
 {
     DOUBLE Coordinates;
     INT Line;
@@ -79,7 +99,7 @@ Generator::CheckingRoom(INT Room)
 
     for(INT i = 1; i <= 4; i++)
     {
-        Coordinates = _SortedParentRooms.at(Room - 1)->SetOrGet_RoomCellCoordinates(1, i, 0);
+        Coordinates = _SortedParentRooms.at(Room - 1)->SetOrGet_RoomCellCoordinates(GET, i, NULL);
         Line = TranslateCoordinates(EDITABLE, LINE, Coordinates, NULL, NULL);
         Column = TranslateCoordinates(EDITABLE, COLUMN, Coordinates, NULL, NULL);
 

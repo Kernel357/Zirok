@@ -9,8 +9,10 @@
 using namespace std;
 
 class Generator{
-private:    
-    //Core service fields
+private:
+    /*====================
+      Core service fields
+     ====================*/
     STATUS *_Status = new STATUS();                                 // Contains the status of the last operation.
     INT *_Direction = new INT();                                    // Contains the direction in which the next room will be generated.
     INT *_RandomRoom = new INT();                                   // Contains a randomly selected parent room.
@@ -18,7 +20,9 @@ private:
     INT *_ChildRoomPattern = new INT();                             // Contains the pattern of the next child room.
     INT *_CellIterator = new INT();                                 // Contains the number of free cells.
 
-    //Core conf fields
+    /*=================
+      Core conf fields
+     =================*/
     vector<shared_ptr<BaseRoomPattern>>  _Rooms;                    // Vector with all rooms.
     vector<shared_ptr<BaseRoomPattern>>  _SortedParentRooms;        // Vector with sorted rooms for RandomLib.
     vector<DOUBLE> _OccupiedCellAddresses;                          // Contains already occupied grid cells.
@@ -30,8 +34,9 @@ private:
     INT *_CoordinateStartRoomLine = new INT();                      // Contains the height coordinate of the starting room.
     INT *_CoordinateStartRoomColumn = new INT();                    // Contains the length coordinate of the starting room.
 
-
-    //Core private methods
+    /*=====================
+      Core private methods
+     =====================*/
     vector <vector<DOUBLE>>
     CalculateOfRoomCellsCoordinates(INT Line,
                                     INT Column);
@@ -59,22 +64,25 @@ private:
     CreateRoom(INT RoomMode);
 
     VOID
-    AddingRoomToVector(shared_ptr<BaseRoomPattern> Room);
+    AddRoomToVector(shared_ptr<BaseRoomPattern> Room);
 
     VOID
-    CheckingRoom(INT Room);
+    CheckRoom(INT Room);
 
     vector<INT>
-    TestingAndSortingPatterns(shared_ptr<BaseRoomPattern> Room,
-                              INT Direction);
+    TestAndSortPatterns(shared_ptr<BaseRoomPattern> Room,
+                        INT Direction);
 
     VOID
-    TestShow();
+    PrintResult();
 
 public:     
     Generator();
     ~Generator();
 
+    /*====================
+      Core public methods
+     ====================*/
     STATUS
     Configure(INT FieldSizeLine,
               INT FieldSizeColumn,

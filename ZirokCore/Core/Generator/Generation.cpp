@@ -1,8 +1,4 @@
-﻿/*
- * This file contains the implementation of the methods of the Generator class responsible for generating the dungeon.
- */
-
-#include <cstring>
+﻿#include <cstring>
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -23,14 +19,18 @@ Generator::~Generator()
 {
     DebugPrintMessange(INFO, "\nDestruction core... \n");
 
-    //Core service fields
+    /*====================
+      Core service fields
+     ====================*/
     delete _Status;
     delete _Direction;
     delete _RandomRoom;
     delete _CurrentRoom;
     delete _ChildRoomPattern;
 
-    //Core conf fields
+    /*=================
+      Core conf fields
+     =================*/
     _Rooms.clear();
     _Rooms.shrink_to_fit();
 
@@ -53,21 +53,17 @@ Generator::~Generator()
 
 
 /*
- * This method will calculate the coordinates for new room cells depending on the pattern of the new room.
+ * vector <vector<DOUBLE>>
+ * Generator::CalculateOfRoomCellsCoordinates()
+ *
+ * This method allows you to calculate the coordinates of new room cells depending on the pattern of the new room.
  *
  * @param:
- *      ChildRoomPattern = <pattern for child (new) room>;
- *
- *      Direction = <direction for create child (new) room>;
- *
- *      Line = <line coordinate>; In this parameter we set the line coordinate of
- *          the cell of the parent room in which the door is located in the direction we need.
- *
- *      Column = <column coordinate>; In this parameter we set the column coordinate of
- *          the cell of the parent room in which the door is located in the direction we need.
+ *      INT Line
+ *      INT Column
  *
  * @return:
- *      This method can return vector with cell coordinates for child (new) room.
+ *      vector <vector<DOUBLE>> RoomCellsCoordinates
 */
 
 vector <vector<DOUBLE>>
@@ -137,8 +133,6 @@ Generator::CalculateOfRoomCellsCoordinates(INT Line,
         *_Status = SUCCESS;
         return RoomCellsCoordinates;
     }
-
-    ////////////WARNING!!! Test Part/////////////////////
 
     else if(*_ChildRoomPattern == 2)
     {
@@ -393,7 +387,6 @@ Generator::CalculateOfRoomCellsCoordinates(INT Line,
         *_Status = SUCCESS;
         return RoomCellsCoordinates;
     }
-    ////////////WARNING!!! Test Part/////////////////////
 
     else if(*_ChildRoomPattern == 4)
     {
@@ -696,7 +689,6 @@ Generator::CalculateOfRoomCellsCoordinates(INT Line,
         *_Status = SUCCESS;
         return RoomCellsCoordinates;
     }
-    ////////////WARNING!!! Test Part/////////////////////
 
     else if(*_ChildRoomPattern == 6)
     {
@@ -1246,6 +1238,19 @@ Generator::CalculateOfRoomCellsCoordinates(INT Line,
     return RoomCellsCoordinates;
 }
 
+
+/*
+ * VOID
+ * Generator::CreateRoom()
+ *
+ * This method allows you to create a new room depending on the pattern.
+ *
+ * @param:
+ *      INT RoomMode
+ *
+ * @return:
+*/
+
 VOID
 Generator::CreateRoom(INT RoomMode)
 {
@@ -1263,7 +1268,7 @@ Generator::CreateRoom(INT RoomMode)
                                                                                         *_CoordinateStartRoomColumn));
         _Rooms.at(*_CurrentRoom - 1)->SetOrGet_RoomClass(SET, START_ROOM);
 
-        AddingRoomToVector(_Rooms.at(*_CurrentRoom - 1));
+        AddRoomToVector(_Rooms.at(*_CurrentRoom - 1));
         if(*_Status != SUCCESS)
         {
             *_Status = STARTING_ROOM_CANNOT_BE_A_PARENT_ROOM;
@@ -1276,14 +1281,13 @@ Generator::CreateRoom(INT RoomMode)
 
     else
     {
-        //Checking if the door is closed in the selected direction, if it is open, it makes no sense for us to try to put another room in the same place
         if((_SortedParentRooms.at(*_RandomRoom - 1)->SetOrGet_OpenDoor(GET, *_Direction, NULL)) != 0)
         {
             *_Status = FAILURE_TO_CREATE_ROOM_THE_DOOR_IN_THE_SELECTED_DIRECTION_IS_OPEN;
             return;
         }
 
-        CheckingRoom(*_RandomRoom);
+        CheckRoom(*_RandomRoom);
 
         if(*_Status == ROOM_HAS_BEEN_REMOVED)
         {
@@ -1422,12 +1426,12 @@ Generator::CreateRoom(INT RoomMode)
 
         //Adding a new room to a vector with sorted rooms for RandomLib
 
-        AddingRoomToVector(_Rooms.at(*_CurrentRoom - 1));
+        AddRoomToVector(_Rooms.at(*_CurrentRoom - 1));
 
 
         //Checking the current parent room for the possibility of becoming a parent room in the future
 
-        CheckingRoom(*_RandomRoom);
+        CheckRoom(*_RandomRoom);
 
         *_Status = SUCCESS;
         *_CurrentRoom = *_CurrentRoom + 1;
@@ -1435,6 +1439,18 @@ Generator::CreateRoom(INT RoomMode)
 
     return;
 }
+
+
+/*
+ * VOID
+ * Generator::CreateStartCrosshair()
+ *
+ * This method allows you to create a starting crosshair from rooms.
+ *
+ * @param:
+ *
+ * @return:
+*/
 
 VOID
 Generator::CreateStartCrosshair()
@@ -1448,7 +1464,7 @@ Generator::CreateStartCrosshair()
         *_ChildRoomPattern = 1;
         *_Direction = i;
         *_RandomRoom = 1;
-        CreateRoom(1);
+        CreateRoom(DEFAULT_ROOM_MODE);
 
         if(*_Status != SUCCESS)
         {
@@ -1460,6 +1476,19 @@ Generator::CreateStartCrosshair()
     *_Status = SUCCESS;
     return;
 }
+
+
+/*
+ * VOID
+ * Generator::Generate()
+ *
+ * This method is actually the basis of the generator.
+ *      It is in it that the generation cycle works and the algorithm for calling all functions and methods is written.
+ *
+ * @param:
+ *
+ * @return:
+*/
 
 STATUS
 Generator::Generate()
@@ -1515,7 +1544,7 @@ Generator::Generate()
         *_Direction = Get_RandomDirection(_SortedParentRooms.at(*_RandomRoom - 1));
         DebugPrintMessange(INFO, "Direction: %d \n", *_Direction);
 
-        SortedPatterns = TestingAndSortingPatterns(_SortedParentRooms.at(*_RandomRoom - 1), *_Direction);
+        SortedPatterns = TestAndSortPatterns(_SortedParentRooms.at(*_RandomRoom - 1), *_Direction);
         if(SortedPatterns.empty())
         {
             DebugPrintMessange(INFO, "SortedPatterns is empty! \n");
@@ -1543,13 +1572,25 @@ Generator::Generate()
          return *_Status;
     }
 
-    TestShow();
+    PrintResult();
 
     return *_Status;
 }
 
+
+/*
+ * VOID
+ * Generator::PrintResult()
+ *
+ * This method allows you to print the generation results.
+ *
+ * @param:
+ *
+ * @return:
+*/
+
 VOID
-Generator::TestShow()
+Generator::PrintResult()
 {
     vector<DOUBLE> Cells;
     for(INT i = 0; i < *_NumberOfRooms; i++)
@@ -1563,10 +1604,10 @@ Generator::TestShow()
         }
 
         DebugPrintMessange(INFO, "Pattern: %d \n", _Rooms.at(i)->Get_Pattern());
-        DebugPrintMessange(INFO, "Door 1: %d \n", _Rooms.at(i)->SetOrGet_OpenDoor(1, 1, 0));
-        DebugPrintMessange(INFO, "Door 2: %d \n", _Rooms.at(i)->SetOrGet_OpenDoor(1, 2, 0));
-        DebugPrintMessange(INFO, "Door 3: %d \n", _Rooms.at(i)->SetOrGet_OpenDoor(1, 3, 0));
-        DebugPrintMessange(INFO, "Door 4: %d \n", _Rooms.at(i)->SetOrGet_OpenDoor(1, 4, 0));
+        DebugPrintMessange(INFO, "Door 1: %d \n", _Rooms.at(i)->SetOrGet_OpenDoor(GET, DOOR_1, NULL));
+        DebugPrintMessange(INFO, "Door 2: %d \n", _Rooms.at(i)->SetOrGet_OpenDoor(GET, DOOR_2, NULL));
+        DebugPrintMessange(INFO, "Door 3: %d \n", _Rooms.at(i)->SetOrGet_OpenDoor(GET, DOOR_3, NULL));
+        DebugPrintMessange(INFO, "Door 4: %d \n", _Rooms.at(i)->SetOrGet_OpenDoor(GET, DOOR_4, NULL));
 
     }
 

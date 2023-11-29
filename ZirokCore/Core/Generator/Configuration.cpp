@@ -40,7 +40,9 @@ Generator::Configure(INT FieldSizeLine,
 {
     DebugPrintMessange(INFO, "Configuration core... \n");
 
-    //Core conf fields
+    /*=================
+      Core conf fields
+     =================*/
     *_NumberOfRooms = NumberOfRooms;
     *_UseStartCrosshair = UseStartCrosshair;
     *_FieldSizeLine = FieldSizeLine;
@@ -63,12 +65,16 @@ Generator::Configure(INT FieldSizeLine,
         return *_Status;
     }
 
-    //Core conf fields
+    /*=================
+      Core conf fields
+     =================*/
     _Rooms.resize(NumberOfRooms);
     _SortedParentRooms.resize(0);
     _OccupiedCellAddresses.resize(0);
 
-    //Core service fields
+    /*====================
+      Core service fields
+     ====================*/
     *_Direction = 0;
     *_RandomRoom = 0;
     *_CurrentRoom = 1;

@@ -1,12 +1,12 @@
-﻿#include <stdarg.h>
+#include <stdarg.h>
 #include "Core/Library/DebugLib/DebugLib.h"
 
-VOID DebugPrintMessange(DEBUG_MESSANGE_TYPES Type, std::string_view String, ...){}
+VOID DebugPrintMessange(DEBUG_MESSANGE_TYPES Type, std::string_view String, ...){return;}
 
-VOID DeadLoop(){}
+VOID DeadLoop(){return;}
 
-VOID InitLog(){}
+VOID InitLog(){return;}
 
-VOID DeInitLog(){}
+VOID DeInitLog(){return;}
 
 

@@ -39,9 +39,10 @@ RoomPattern_1::~RoomPattern_1()
     delete _Class;
 }
 
-DOUBLE RoomPattern_1::SetOrGet_RoomCellCoordinates(INT SetOrGet,
-                                                   INT DoorNumber,
-                                                   DOUBLE Coordinates)
+DOUBLE
+RoomPattern_1::SetOrGet_RoomCellCoordinates(INT SetOrGet,
+                                            INT DoorNumber,
+                                            DOUBLE Coordinates)
 {
     /*
      * The method will return the coordinates of cells with doors (by door number) or write coordinates to cells (to an available cell or by door number)
@@ -49,7 +50,7 @@ DOUBLE RoomPattern_1::SetOrGet_RoomCellCoordinates(INT SetOrGet,
      * If you want to write the coordinates to a cell with a door - specify the door number in DoorNumber
     */
 
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
         //This pattern does not allow automatic filling of cells without a door number (it does not contain cells without doors)
 
@@ -59,7 +60,7 @@ DOUBLE RoomPattern_1::SetOrGet_RoomCellCoordinates(INT SetOrGet,
         }
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {   
         if(DoorNumber != 0)
         {
@@ -70,27 +71,21 @@ DOUBLE RoomPattern_1::SetOrGet_RoomCellCoordinates(INT SetOrGet,
     return 0;
 }
 
-INT RoomPattern_1::Get_Pattern()
+INT
+RoomPattern_1::Get_Pattern()
 {
-    /*
-     *  This method will return room pattern
-    */
-
     return *_Pattern;
 }
 
-INT RoomPattern_1::SetOrGet_RoomClass(INT SetOrGet,
-                                      INT Class)
+INT
+RoomPattern_1::SetOrGet_RoomClass(INT SetOrGet,
+                                  INT Class)
 {
-    /*
-     * This method will help you set or get the room class
-    */
-
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
         *_Class = Class;
     }
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
         return *_Class;
     }
@@ -98,20 +93,17 @@ INT RoomPattern_1::SetOrGet_RoomClass(INT SetOrGet,
     return 0;
 }
 
-INT RoomPattern_1::SetOrGet_OpenDoor(INT SetOrGet,
-                                     INT DoorNumber,
-                                     INT DoorState)
+INT
+RoomPattern_1::SetOrGet_OpenDoor(INT SetOrGet,
+                                 INT DoorNumber,
+                                 INT DoorState)
 {
-    /*
-     * This method will help you open the door or get the status of the door
-    */
-
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
         _Cells.at(0).at(DoorNumber) = DoorState;
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
         return _Cells.at(0).at(DoorNumber);
     }
@@ -119,12 +111,9 @@ INT RoomPattern_1::SetOrGet_OpenDoor(INT SetOrGet,
     return 0;
 }
 
-vector<INT> RoomPattern_1::Get_FreeDirections()
+vector<INT>
+RoomPattern_1::Get_FreeDirections()
 {
-    /*
-     * This method will help you get all free referrals (all closed door referrals).
-    */
-
     vector<INT> FreeDirections;
 
     for(INT i = 1; i < 5; i++)
@@ -138,14 +127,16 @@ vector<INT> RoomPattern_1::Get_FreeDirections()
     return FreeDirections;
 }
 
-vector<DOUBLE> RoomPattern_1::Get_RoomCellsCoordinates()
+vector<DOUBLE>
+RoomPattern_1::Get_RoomCellsCoordinates()
 {
     vector<DOUBLE> CellsCoordinates;
     CellsCoordinates.push_back(_Cells.at(0).at(0));
     return CellsCoordinates;
 }
 
-INT RoomPattern_1::Get_SerialNumber()
+INT
+RoomPattern_1::Get_SerialNumber()
 {
     return *_SerialNumber;
 }
@@ -195,9 +186,10 @@ RoomPattern_2::~RoomPattern_2()
     delete _Class;
 }
 
-DOUBLE RoomPattern_2::SetOrGet_RoomCellCoordinates(INT SetOrGet,
-                                                   INT DoorNumber,
-                                                   DOUBLE Coordinates)
+DOUBLE
+RoomPattern_2::SetOrGet_RoomCellCoordinates(INT SetOrGet,
+                                            INT DoorNumber,
+                                            DOUBLE Coordinates)
 {
     /*
      * The method will return the coordinates of cells with doors (by door number) or write coordinates to cells (to an available cell or by door number)
@@ -205,29 +197,29 @@ DOUBLE RoomPattern_2::SetOrGet_RoomCellCoordinates(INT SetOrGet,
      * If you want to write the coordinates to a cell with a door - specify the door number in DoorNumber
     */
 
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
         //This pattern does not allow automatic filling of cells without a door number (it does not contain cells without doors)
 
-        if(DoorNumber == 1 || DoorNumber == 2)
+        if(DoorNumber == DOOR_1 || DoorNumber == DOOR_2)
         {
             _Cells.at(0).at(0) = Coordinates;
         }
 
-        else if(DoorNumber == 3 || DoorNumber == 4)
+        else if(DoorNumber == DOOR_3 || DoorNumber == DOOR_4)
         {
             _Cells.at(1).at(0) = Coordinates;
         }
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
-        if(DoorNumber == 1 || DoorNumber == 2)
+        if(DoorNumber == DOOR_1 || DoorNumber == DOOR_2)
         {
             return _Cells.at(0).at(0);
         }
 
-        else if(DoorNumber == 3 || DoorNumber == 4)
+        else if(DoorNumber == DOOR_3 || DoorNumber == DOOR_4)
         {
             return _Cells.at(1).at(0);
         }
@@ -236,20 +228,22 @@ DOUBLE RoomPattern_2::SetOrGet_RoomCellCoordinates(INT SetOrGet,
     return 0;
 }
 
-INT RoomPattern_2::Get_Pattern()
+INT
+RoomPattern_2::Get_Pattern()
 {
     return *_Pattern;
 }
 
-INT RoomPattern_2::SetOrGet_RoomClass(INT SetOrGet,
-                                      INT Class)
+INT
+RoomPattern_2::SetOrGet_RoomClass(INT SetOrGet,
+                                  INT Class)
 {
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
         *_Class = Class;
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
         return *_Class;
     }
@@ -257,51 +251,52 @@ INT RoomPattern_2::SetOrGet_RoomClass(INT SetOrGet,
     return 0;
 }
 
-INT RoomPattern_2::SetOrGet_OpenDoor(INT SetOrGet,
-                                     INT DoorNumber,
-                                     INT DoorState)
+INT
+RoomPattern_2::SetOrGet_OpenDoor(INT SetOrGet,
+                                 INT DoorNumber,
+                                 INT DoorState)
 {
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
-        if(DoorNumber == 1)
+        if(DoorNumber == DOOR_1)
         {
             _Cells.at(0).at(1) = DoorState;
         }
 
-        else if(DoorNumber == 2)
+        else if(DoorNumber == DOOR_2)
         {
             _Cells.at(0).at(2) = DoorState;
         }
 
-        else if(DoorNumber == 3)
+        else if(DoorNumber == DOOR_3)
         {
             _Cells.at(1).at(1) = DoorState;
         }
 
-        else if(DoorNumber == 4)
+        else if(DoorNumber == DOOR_4)
         {
             _Cells.at(1).at(2) = DoorState;
         }
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
-        if(DoorNumber == 1)
+        if(DoorNumber == DOOR_1)
         {
             return _Cells.at(0).at(1);
         }
 
-        else if(DoorNumber == 2)
+        else if(DoorNumber == DOOR_2)
         {
             return _Cells.at(0).at(2);
         }
 
-        else if(DoorNumber == 3)
+        else if(DoorNumber == DOOR_3)
         {
             return _Cells.at(1).at(1);
         }
 
-        else if(DoorNumber == 4)
+        else if(DoorNumber == DOOR_4)
         {
             return _Cells.at(1).at(2);
         }
@@ -310,7 +305,8 @@ INT RoomPattern_2::SetOrGet_OpenDoor(INT SetOrGet,
     return 0;
 }
 
-vector<INT> RoomPattern_2::Get_FreeDirections()
+vector<INT>
+RoomPattern_2::Get_FreeDirections()
 {
     /*
      * This method will help you get all free referrals (all closed door referrals).
@@ -338,17 +334,21 @@ vector<INT> RoomPattern_2::Get_FreeDirections()
     return FreeDirections;
 }
 
-vector<DOUBLE> RoomPattern_2::Get_RoomCellsCoordinates()
+vector<DOUBLE>
+RoomPattern_2::Get_RoomCellsCoordinates()
 {
     vector<DOUBLE> CellsCoordinates;
+
     for(INT i = 0; i < 2; i++)
     {
         CellsCoordinates.push_back(_Cells.at(i).at(0));
     }
+
     return CellsCoordinates;
 }
 
-INT RoomPattern_2::Get_SerialNumber()
+INT
+RoomPattern_2::Get_SerialNumber()
 {
     return *_SerialNumber;
 }
@@ -398,9 +398,10 @@ RoomPattern_3::~RoomPattern_3()
     delete _Class;
 }
 
-DOUBLE RoomPattern_3::SetOrGet_RoomCellCoordinates(INT SetOrGet,
-                                                   INT DoorNumber,
-                                                   DOUBLE Coordinates)
+DOUBLE
+RoomPattern_3::SetOrGet_RoomCellCoordinates(INT SetOrGet,
+                                            INT DoorNumber,
+                                            DOUBLE Coordinates)
 {
     /*
      * The method will return the coordinates of cells with doors (by door number) or write coordinates to cells (to an available cell or by door number)
@@ -408,29 +409,29 @@ DOUBLE RoomPattern_3::SetOrGet_RoomCellCoordinates(INT SetOrGet,
      * If you want to write the coordinates to a cell with a door - specify the door number in DoorNumber
     */
 
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
         //This pattern does not allow automatic filling of cells without a door number (it does not contain cells without doors)
 
-        if(DoorNumber == 1 || DoorNumber == 4)
+        if(DoorNumber == DOOR_1 || DoorNumber == DOOR_4)
         {
             _Cells.at(0).at(0) = Coordinates;
         }
 
-        else if(DoorNumber == 2 || DoorNumber == 3)
+        else if(DoorNumber == DOOR_2 || DoorNumber == DOOR_3)
         {
             _Cells.at(1).at(0) = Coordinates;
         }
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
-        if(DoorNumber == 1 || DoorNumber == 4)
+        if(DoorNumber == DOOR_1 || DoorNumber == DOOR_4)
         {
             return _Cells.at(0).at(0);
         }
 
-        else if(DoorNumber == 2 || DoorNumber == 3)
+        else if(DoorNumber == DOOR_2 || DoorNumber == DOOR_3)
         {
             return _Cells.at(1).at(0);
         }
@@ -439,20 +440,22 @@ DOUBLE RoomPattern_3::SetOrGet_RoomCellCoordinates(INT SetOrGet,
     return 0;
 }
 
-INT RoomPattern_3::Get_Pattern()
+INT
+RoomPattern_3::Get_Pattern()
 {
     return *_Pattern;
 }
 
-INT RoomPattern_3::SetOrGet_RoomClass(INT SetOrGet,
-                                      INT Class)
+INT
+RoomPattern_3::SetOrGet_RoomClass(INT SetOrGet,
+                                  INT Class)
 {
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
         *_Class = Class;
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
         return *_Class;
     }
@@ -460,51 +463,52 @@ INT RoomPattern_3::SetOrGet_RoomClass(INT SetOrGet,
     return 0;
 }
 
-INT RoomPattern_3::SetOrGet_OpenDoor(INT SetOrGet,
-                                     INT DoorNumber,
-                                     INT DoorState)
+INT
+RoomPattern_3::SetOrGet_OpenDoor(INT SetOrGet,
+                                 INT DoorNumber,
+                                 INT DoorState)
 {
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
-        if(DoorNumber == 1)
+        if(DoorNumber == DOOR_1)
         {
             _Cells.at(0).at(1) = DoorState;
         }
 
-        else if(DoorNumber == 2)
+        else if(DoorNumber == DOOR_2)
         {
             _Cells.at(1).at(1) = DoorState;
         }
 
-        else if(DoorNumber == 3)
+        else if(DoorNumber == DOOR_3)
         {
             _Cells.at(1).at(2) = DoorState;
         }
 
-        else if(DoorNumber == 4)
+        else if(DoorNumber == DOOR_4)
         {
             _Cells.at(0).at(2) = DoorState;
         }
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
-        if(DoorNumber == 1)
+        if(DoorNumber == DOOR_1)
         {
             return _Cells.at(0).at(1);
         }
 
-        else if(DoorNumber == 2)
+        else if(DoorNumber == DOOR_2)
         {
             return _Cells.at(1).at(1);
         }
 
-        else if(DoorNumber == 3)
+        else if(DoorNumber == DOOR_3)
         {
             return _Cells.at(1).at(2);
         }
 
-        else if(DoorNumber == 4)
+        else if(DoorNumber == DOOR_4)
         {
             return _Cells.at(0).at(2);
         }
@@ -513,7 +517,8 @@ INT RoomPattern_3::SetOrGet_OpenDoor(INT SetOrGet,
     return 0;
 }
 
-vector<INT> RoomPattern_3::Get_FreeDirections()
+vector<INT>
+RoomPattern_3::Get_FreeDirections()
 {
     /*
      * This method will help you get all free referrals (all closed door referrals).
@@ -541,17 +546,21 @@ vector<INT> RoomPattern_3::Get_FreeDirections()
     return FreeDirections;
 }
 
-vector<DOUBLE> RoomPattern_3::Get_RoomCellsCoordinates()
+vector<DOUBLE>
+RoomPattern_3::Get_RoomCellsCoordinates()
 {
     vector<DOUBLE> CellsCoordinates;
+
     for(INT i = 0; i < 2; i++)
     {
         CellsCoordinates.push_back(_Cells.at(i).at(0));
     }
+
     return CellsCoordinates;
 }
 
-INT RoomPattern_3::Get_SerialNumber()
+INT
+RoomPattern_3::Get_SerialNumber()
 {
     return *_SerialNumber;
 }
@@ -605,9 +614,10 @@ RoomPattern_4::~RoomPattern_4()
     delete _Class;
 }
 
-DOUBLE RoomPattern_4::SetOrGet_RoomCellCoordinates(INT SetOrGet,
-                                                   INT DoorNumber,
-                                                   DOUBLE Coordinates)
+DOUBLE
+RoomPattern_4::SetOrGet_RoomCellCoordinates(INT SetOrGet,
+                                            INT DoorNumber,
+                                            DOUBLE Coordinates)
 {
     /*
      * The method will return the coordinates of cells with doors (by door number) or write coordinates to cells (to an available cell or by door number)
@@ -615,32 +625,32 @@ DOUBLE RoomPattern_4::SetOrGet_RoomCellCoordinates(INT SetOrGet,
      * If you want to write the coordinates to a cell with a door - specify the door number in DoorNumber
     */
 
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
         if(DoorNumber == 0)
         {
             _Cells.at(1).at(0) = Coordinates;
         }
 
-        else if(DoorNumber == 1 || DoorNumber == 2)
+        else if(DoorNumber == DOOR_1 || DoorNumber == DOOR_2)
         {
             _Cells.at(0).at(0) = Coordinates;
         }
 
-        else if(DoorNumber == 3 || DoorNumber == 4)
+        else if(DoorNumber == DOOR_3 || DoorNumber == DOOR_4)
         {
             _Cells.at(2).at(0) = Coordinates;
         }
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
-        if(DoorNumber == 1 || DoorNumber == 2)
+        if(DoorNumber == DOOR_1 || DoorNumber == DOOR_2)
         {
             return _Cells.at(0).at(0);
         }
 
-        else if(DoorNumber == 3 || DoorNumber == 4)
+        else if(DoorNumber == DOOR_3 || DoorNumber == DOOR_4)
         {
             return _Cells.at(2).at(0);
         }
@@ -649,20 +659,22 @@ DOUBLE RoomPattern_4::SetOrGet_RoomCellCoordinates(INT SetOrGet,
     return 0;
 }
 
-INT RoomPattern_4::Get_Pattern()
+INT
+RoomPattern_4::Get_Pattern()
 {
     return *_Pattern;
 }
 
-INT RoomPattern_4::SetOrGet_RoomClass(INT SetOrGet,
-                                      INT Class)
+INT
+RoomPattern_4::SetOrGet_RoomClass(INT SetOrGet,
+                                  INT Class)
 {
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
         *_Class = Class;
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
         return *_Class;
     }
@@ -670,51 +682,52 @@ INT RoomPattern_4::SetOrGet_RoomClass(INT SetOrGet,
     return 0;
 }
 
-INT RoomPattern_4::SetOrGet_OpenDoor(INT SetOrGet,
-                                     INT DoorNumber,
-                                     INT DoorState)
+INT
+RoomPattern_4::SetOrGet_OpenDoor(INT SetOrGet,
+                                 INT DoorNumber,
+                                 INT DoorState)
 {
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
-        if(DoorNumber == 1)
+        if(DoorNumber == DOOR_1)
         {
             _Cells.at(0).at(1) = DoorState;
         }
 
-        else if(DoorNumber == 2)
+        else if(DoorNumber == DOOR_2)
         {
             _Cells.at(0).at(2) = DoorState;
         }
 
-        else if(DoorNumber == 3)
+        else if(DoorNumber == DOOR_3)
         {
             _Cells.at(2).at(1) = DoorState;
         }
 
-        else if(DoorNumber == 4)
+        else if(DoorNumber == DOOR_4)
         {
             _Cells.at(2).at(2) = DoorState;
         }
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
-        if(DoorNumber == 1)
+        if(DoorNumber == DOOR_1)
         {
             return _Cells.at(0).at(1);
         }
 
-        else if(DoorNumber == 2)
+        else if(DoorNumber == DOOR_2)
         {
             return _Cells.at(0).at(2);
         }
 
-        else if(DoorNumber == 3)
+        else if(DoorNumber == DOOR_3)
         {
             return _Cells.at(2).at(1);
         }
 
-        else if(DoorNumber == 4)
+        else if(DoorNumber == DOOR_4)
         {
             return _Cells.at(2).at(2);
         }
@@ -723,7 +736,8 @@ INT RoomPattern_4::SetOrGet_OpenDoor(INT SetOrGet,
     return 0;
 }
 
-vector<INT> RoomPattern_4::Get_FreeDirections()
+vector<INT>
+RoomPattern_4::Get_FreeDirections()
 {
     /*
      * This method will help you get all free referrals (all closed door referrals).
@@ -751,7 +765,8 @@ vector<INT> RoomPattern_4::Get_FreeDirections()
     return FreeDirections;
 }
 
-vector<DOUBLE> RoomPattern_4::Get_RoomCellsCoordinates()
+vector<DOUBLE>
+RoomPattern_4::Get_RoomCellsCoordinates()
 {
     vector<DOUBLE> CellsCoordinates;
     for(INT i = 0; i < 3; i++)
@@ -761,7 +776,8 @@ vector<DOUBLE> RoomPattern_4::Get_RoomCellsCoordinates()
     return CellsCoordinates;
 }
 
-INT RoomPattern_4::Get_SerialNumber()
+INT
+RoomPattern_4::Get_SerialNumber()
 {
     return *_SerialNumber;
 }
@@ -815,9 +831,10 @@ RoomPattern_5::~RoomPattern_5()
     delete _Class;
 }
 
-DOUBLE RoomPattern_5::SetOrGet_RoomCellCoordinates(INT SetOrGet,
-                                                   INT DoorNumber,
-                                                   DOUBLE Coordinates)
+DOUBLE
+RoomPattern_5::SetOrGet_RoomCellCoordinates(INT SetOrGet,
+                                            INT DoorNumber,
+                                            DOUBLE Coordinates)
 {
     /*
      * The method will return the coordinates of cells with doors (by door number) or write coordinates to cells (to an available cell or by door number)
@@ -825,32 +842,32 @@ DOUBLE RoomPattern_5::SetOrGet_RoomCellCoordinates(INT SetOrGet,
      * If you want to write the coordinates to a cell with a door - specify the door number in DoorNumber
     */
 
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
         if(DoorNumber == 0)
         {
             _Cells.at(1).at(0) = Coordinates;
         }
 
-        else if(DoorNumber == 1 || DoorNumber == 4)
+        else if(DoorNumber == DOOR_1 || DoorNumber == DOOR_4)
         {
             _Cells.at(0).at(0) = Coordinates;
         }
 
-        else if(DoorNumber == 2 || DoorNumber == 3)
+        else if(DoorNumber == DOOR_2 || DoorNumber == DOOR_3)
         {
             _Cells.at(2).at(0) = Coordinates;
         }
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
-        if(DoorNumber == 1 || DoorNumber == 4)
+        if(DoorNumber == DOOR_1 || DoorNumber == DOOR_4)
         {
             return _Cells.at(0).at(0);
         }
 
-        else if(DoorNumber == 2 || DoorNumber == 3)
+        else if(DoorNumber == DOOR_2 || DoorNumber == DOOR_3)
         {
             return _Cells.at(2).at(0);
         }
@@ -859,20 +876,22 @@ DOUBLE RoomPattern_5::SetOrGet_RoomCellCoordinates(INT SetOrGet,
     return 0;
 }
 
-INT RoomPattern_5::Get_Pattern()
+INT
+RoomPattern_5::Get_Pattern()
 {
     return *_Pattern;
 }
 
-INT RoomPattern_5::SetOrGet_RoomClass(INT SetOrGet,
-                                      INT Class)
+INT
+RoomPattern_5::SetOrGet_RoomClass(INT SetOrGet,
+                                  INT Class)
 {
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
         *_Class = Class;
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
         return *_Class;
     }
@@ -880,51 +899,52 @@ INT RoomPattern_5::SetOrGet_RoomClass(INT SetOrGet,
     return 0;
 }
 
-INT RoomPattern_5::SetOrGet_OpenDoor(INT SetOrGet,
-                                     INT DoorNumber,
-                                     INT DoorState)
+INT
+RoomPattern_5::SetOrGet_OpenDoor(INT SetOrGet,
+                                 INT DoorNumber,
+                                 INT DoorState)
 {
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
-        if(DoorNumber == 1)
+        if(DoorNumber == DOOR_1)
         {
             _Cells.at(0).at(1) = DoorState;
         }
 
-        else if(DoorNumber == 2)
+        else if(DoorNumber == DOOR_2)
         {
             _Cells.at(2).at(1) = DoorState;
         }
 
-        else if(DoorNumber == 3)
+        else if(DoorNumber == DOOR_3)
         {
             _Cells.at(2).at(2) = DoorState;
         }
 
-        else if(DoorNumber == 4)
+        else if(DoorNumber == DOOR_4)
         {
             _Cells.at(0).at(2) = DoorState;
         }
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
-        if(DoorNumber == 1)
+        if(DoorNumber == DOOR_1)
         {
             return _Cells.at(0).at(1);
         }
 
-        else if(DoorNumber == 2)
+        else if(DoorNumber == DOOR_2)
         {
             return _Cells.at(2).at(1);
         }
 
-        else if(DoorNumber == 3)
+        else if(DoorNumber == DOOR_3)
         {
             return _Cells.at(2).at(2);
         }
 
-        else if(DoorNumber == 4)
+        else if(DoorNumber == DOOR_4)
         {
             return _Cells.at(0).at(2);
         }
@@ -933,7 +953,8 @@ INT RoomPattern_5::SetOrGet_OpenDoor(INT SetOrGet,
     return 0;
 }
 
-vector<INT> RoomPattern_5::Get_FreeDirections()
+vector<INT>
+RoomPattern_5::Get_FreeDirections()
 {
     /*
      * This method will help you get all free referrals (all closed door referrals).
@@ -961,7 +982,8 @@ vector<INT> RoomPattern_5::Get_FreeDirections()
     return FreeDirections;
 }
 
-vector<DOUBLE> RoomPattern_5::Get_RoomCellsCoordinates()
+vector<DOUBLE>
+RoomPattern_5::Get_RoomCellsCoordinates()
 {
     vector<DOUBLE> CellsCoordinates;
     for(INT i = 0; i < 3; i++)
@@ -971,7 +993,8 @@ vector<DOUBLE> RoomPattern_5::Get_RoomCellsCoordinates()
     return CellsCoordinates;
 }
 
-INT RoomPattern_5::Get_SerialNumber()
+INT
+RoomPattern_5::Get_SerialNumber()
 {
     return *_SerialNumber;
 }
@@ -1025,9 +1048,10 @@ RoomPattern_6::~RoomPattern_6()
     delete _Class;
 }
 
-DOUBLE RoomPattern_6::SetOrGet_RoomCellCoordinates(INT SetOrGet,
-                                                   INT DoorNumber,
-                                                   DOUBLE Coordinates)
+DOUBLE
+RoomPattern_6::SetOrGet_RoomCellCoordinates(INT SetOrGet,
+                                            INT DoorNumber,
+                                            DOUBLE Coordinates)
 {
     /*
      * The method will return the coordinates of cells with doors (by door number) or write coordinates to cells (to an available cell or by door number)
@@ -1035,32 +1059,32 @@ DOUBLE RoomPattern_6::SetOrGet_RoomCellCoordinates(INT SetOrGet,
      * If you want to write the coordinates to a cell with a door - specify the door number in DoorNumber
     */
 
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
         if(DoorNumber == 0)
         {
             _Cells.at(1).at(0) = Coordinates;
         }
 
-        else if(DoorNumber == 1 || DoorNumber == 4)
+        else if(DoorNumber == DOOR_1 || DoorNumber == DOOR_4)
         {
             _Cells.at(0).at(0) = Coordinates;
         }
 
-        else if(DoorNumber == 2 || DoorNumber == 3)
+        else if(DoorNumber == DOOR_2 || DoorNumber == DOOR_3)
         {
             _Cells.at(2).at(0) = Coordinates;
         }
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
-        if(DoorNumber == 1 || DoorNumber == 4)
+        if(DoorNumber == DOOR_1 || DoorNumber == DOOR_4)
         {
             return _Cells.at(0).at(0);
         }
 
-        else if(DoorNumber == 2 || DoorNumber == 3)
+        else if(DoorNumber == DOOR_2 || DoorNumber == DOOR_3)
         {
             return _Cells.at(2).at(0);
         }
@@ -1069,20 +1093,22 @@ DOUBLE RoomPattern_6::SetOrGet_RoomCellCoordinates(INT SetOrGet,
     return 0;
 }
 
-INT RoomPattern_6::Get_Pattern()
+INT
+RoomPattern_6::Get_Pattern()
 {
     return *_Pattern;
 }
 
-INT RoomPattern_6::SetOrGet_RoomClass(INT SetOrGet,
-                                      INT Class)
+INT
+RoomPattern_6::SetOrGet_RoomClass(INT SetOrGet,
+                                  INT Class)
 {
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
         *_Class = Class;
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
         return *_Class;
     }
@@ -1090,51 +1116,52 @@ INT RoomPattern_6::SetOrGet_RoomClass(INT SetOrGet,
     return 0;
 }
 
-INT RoomPattern_6::SetOrGet_OpenDoor(INT SetOrGet,
-                                     INT DoorNumber,
-                                     INT DoorState)
+INT
+RoomPattern_6::SetOrGet_OpenDoor(INT SetOrGet,
+                                 INT DoorNumber,
+                                 INT DoorState)
 {
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
-        if(DoorNumber == 1)
+        if(DoorNumber == DOOR_1)
         {
             _Cells.at(0).at(1) = DoorState;
         }
 
-        else if(DoorNumber == 2)
+        else if(DoorNumber == DOOR_2)
         {
             _Cells.at(2).at(1) = DoorState;
         }
 
-        else if(DoorNumber == 3)
+        else if(DoorNumber == DOOR_3)
         {
             _Cells.at(2).at(2) = DoorState;
         }
 
-        else if(DoorNumber == 4)
+        else if(DoorNumber == DOOR_4)
         {
             _Cells.at(0).at(2) = DoorState;
         }
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
-        if(DoorNumber == 1)
+        if(DoorNumber == DOOR_1)
         {
             return _Cells.at(0).at(1);
         }
 
-        else if(DoorNumber == 2)
+        else if(DoorNumber == DOOR_2)
         {
             return _Cells.at(2).at(1);
         }
 
-        else if(DoorNumber == 3)
+        else if(DoorNumber == DOOR_3)
         {
             return _Cells.at(2).at(2);
         }
 
-        else if(DoorNumber == 4)
+        else if(DoorNumber == DOOR_4)
         {
             return _Cells.at(0).at(2);
         }
@@ -1143,7 +1170,8 @@ INT RoomPattern_6::SetOrGet_OpenDoor(INT SetOrGet,
     return 0;
 }
 
-vector<INT> RoomPattern_6::Get_FreeDirections()
+vector<INT>
+RoomPattern_6::Get_FreeDirections()
 {
     /*
      * This method will help you get all free referrals (all closed door referrals).
@@ -1171,7 +1199,8 @@ vector<INT> RoomPattern_6::Get_FreeDirections()
     return FreeDirections;
 }
 
-vector<DOUBLE> RoomPattern_6::Get_RoomCellsCoordinates()
+vector<DOUBLE>
+RoomPattern_6::Get_RoomCellsCoordinates()
 {
     vector<DOUBLE> CellsCoordinates;
     for(INT i = 0; i < 3; i++)
@@ -1181,7 +1210,8 @@ vector<DOUBLE> RoomPattern_6::Get_RoomCellsCoordinates()
     return CellsCoordinates;
 }
 
-INT RoomPattern_6::Get_SerialNumber()
+INT
+RoomPattern_6::Get_SerialNumber()
 {
     return *_SerialNumber;
 }
@@ -1235,9 +1265,10 @@ RoomPattern_7::~RoomPattern_7()
     delete _Class;
 }
 
-DOUBLE RoomPattern_7::SetOrGet_RoomCellCoordinates(INT SetOrGet,
-                                                   INT DoorNumber,
-                                                   DOUBLE Coordinates)
+DOUBLE
+RoomPattern_7::SetOrGet_RoomCellCoordinates(INT SetOrGet,
+                                            INT DoorNumber,
+                                            DOUBLE Coordinates)
 {
     /*
      * The method will return the coordinates of cells with doors (by door number) or write coordinates to cells (to an available cell or by door number)
@@ -1245,32 +1276,32 @@ DOUBLE RoomPattern_7::SetOrGet_RoomCellCoordinates(INT SetOrGet,
      * If you want to write the coordinates to a cell with a door - specify the door number in DoorNumber
     */
 
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
         if(DoorNumber == 0)
         {
             _Cells.at(1).at(0) = Coordinates;
         }
 
-        else if(DoorNumber == 1 || DoorNumber == 2)
+        else if(DoorNumber == DOOR_1 || DoorNumber == DOOR_2)
         {
             _Cells.at(0).at(0) = Coordinates;
         }
 
-        else if(DoorNumber == 3 || DoorNumber == 4)
+        else if(DoorNumber == DOOR_3 || DoorNumber == DOOR_4)
         {
             _Cells.at(2).at(0) = Coordinates;
         }
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
-        if(DoorNumber == 1 || DoorNumber == 2)
+        if(DoorNumber == DOOR_1 || DoorNumber == DOOR_2)
         {
             return _Cells.at(0).at(0);
         }
 
-        else if(DoorNumber == 3 || DoorNumber == 4)
+        else if(DoorNumber == DOOR_3 || DoorNumber == DOOR_4)
         {
             return _Cells.at(2).at(0);
         }
@@ -1279,13 +1310,15 @@ DOUBLE RoomPattern_7::SetOrGet_RoomCellCoordinates(INT SetOrGet,
     return 0;
 }
 
-INT RoomPattern_7::Get_Pattern()
+INT
+RoomPattern_7::Get_Pattern()
 {
     return *_Pattern;
 }
 
-INT RoomPattern_7::SetOrGet_RoomClass(INT SetOrGet,
-                                      INT Class)
+INT
+RoomPattern_7::SetOrGet_RoomClass(INT SetOrGet,
+                                  INT Class)
 {
     if(SetOrGet == 0)
     {
@@ -1300,51 +1333,52 @@ INT RoomPattern_7::SetOrGet_RoomClass(INT SetOrGet,
     return 0;
 }
 
-INT RoomPattern_7::SetOrGet_OpenDoor(INT SetOrGet,
-                                     INT DoorNumber,
-                                     INT DoorState)
+INT
+RoomPattern_7::SetOrGet_OpenDoor(INT SetOrGet,
+                                 INT DoorNumber,
+                                 INT DoorState)
 {  
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
-        if(DoorNumber == 1)
+        if(DoorNumber == DOOR_1)
         {
             _Cells.at(0).at(1) = DoorState;
         }
 
-        else if(DoorNumber == 2)
+        else if(DoorNumber == DOOR_2)
         {
             _Cells.at(0).at(2) = DoorState;
         }
 
-        else if(DoorNumber == 3)
+        else if(DoorNumber == DOOR_3)
         {
             _Cells.at(2).at(1) = DoorState;
         }
 
-        else if(DoorNumber == 4)
+        else if(DoorNumber == DOOR_4)
         {
             _Cells.at(2).at(2) = DoorState;
         }
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
-        if(DoorNumber == 1)
+        if(DoorNumber == DOOR_1)
         {
             return _Cells.at(0).at(1);
         }
 
-        else if(DoorNumber == 2)
+        else if(DoorNumber == DOOR_2)
         {
             return _Cells.at(0).at(2);
         }
 
-        else if(DoorNumber == 3)
+        else if(DoorNumber == DOOR_3)
         {
             return _Cells.at(2).at(1);
         }
 
-        else if(DoorNumber == 4)
+        else if(DoorNumber == DOOR_4)
         {
             return _Cells.at(2).at(2);
         }
@@ -1353,7 +1387,8 @@ INT RoomPattern_7::SetOrGet_OpenDoor(INT SetOrGet,
     return 0;
 }
 
-vector<INT> RoomPattern_7::Get_FreeDirections()
+vector<INT>
+RoomPattern_7::Get_FreeDirections()
 {
     /*
      * This method will help you get all free referrals (all closed door referrals).
@@ -1381,7 +1416,8 @@ vector<INT> RoomPattern_7::Get_FreeDirections()
     return FreeDirections;
 }
 
-vector<DOUBLE> RoomPattern_7::Get_RoomCellsCoordinates()
+vector<DOUBLE>
+RoomPattern_7::Get_RoomCellsCoordinates()
 {
     vector<DOUBLE> CellsCoordinates;
     for(INT i = 0; i < 3; i++)
@@ -1391,7 +1427,8 @@ vector<DOUBLE> RoomPattern_7::Get_RoomCellsCoordinates()
     return CellsCoordinates;
 }
 
-INT RoomPattern_7::Get_SerialNumber()
+INT
+RoomPattern_7::Get_SerialNumber()
 {
     return *_SerialNumber;
 }
@@ -1449,9 +1486,10 @@ RoomPattern_8::~RoomPattern_8()
     delete _Class;
 }
 
-DOUBLE RoomPattern_8::SetOrGet_RoomCellCoordinates(INT SetOrGet,
-                                                   INT DoorNumber,
-                                                   DOUBLE Coordinates)
+DOUBLE
+RoomPattern_8::SetOrGet_RoomCellCoordinates(INT SetOrGet,
+                                            INT DoorNumber,
+                                            DOUBLE Coordinates)
 {
     /*
      * The method will return the coordinates of cells with doors (by door number) or write coordinates to cells (to an available cell or by door number)
@@ -1459,12 +1497,12 @@ DOUBLE RoomPattern_8::SetOrGet_RoomCellCoordinates(INT SetOrGet,
      * If you want to write the coordinates to a cell with a door - specify the door number in DoorNumber
     */
 
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
         _Cells.at(DoorNumber - 1).at(0) = Coordinates;
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
         return _Cells.at(DoorNumber - 1).at(0);
     }
@@ -1472,13 +1510,15 @@ DOUBLE RoomPattern_8::SetOrGet_RoomCellCoordinates(INT SetOrGet,
     return 0;
 }
 
-INT RoomPattern_8::Get_Pattern()
+INT
+RoomPattern_8::Get_Pattern()
 {
     return *_Pattern;
 }
 
-INT RoomPattern_8::SetOrGet_RoomClass(INT SetOrGet,
-                                      INT Class)
+INT
+RoomPattern_8::SetOrGet_RoomClass(INT SetOrGet,
+                                  INT Class)
 {
     if(SetOrGet == 0)
     {
@@ -1493,16 +1533,17 @@ INT RoomPattern_8::SetOrGet_RoomClass(INT SetOrGet,
     return 0;
 }
 
-INT RoomPattern_8::SetOrGet_OpenDoor(INT SetOrGet,
-                                     INT DoorNumber,
-                                     INT DoorState)
+INT
+RoomPattern_8::SetOrGet_OpenDoor(INT SetOrGet,
+                                 INT DoorNumber,
+                                 INT DoorState)
 {
-    if(SetOrGet == 0)
+    if(SetOrGet == SET)
     {
         _Cells.at(DoorNumber - 1).at(1) = DoorState;
     }
 
-    else if(SetOrGet == 1)
+    else if(SetOrGet == GET)
     {
         return _Cells.at(DoorNumber - 1).at(1);
     }
@@ -1510,7 +1551,8 @@ INT RoomPattern_8::SetOrGet_OpenDoor(INT SetOrGet,
     return 0;
 }
 
-vector<INT> RoomPattern_8::Get_FreeDirections()
+vector<INT>
+RoomPattern_8::Get_FreeDirections()
 {
     /*
      * This method will help you get all free referrals (all closed door referrals).
@@ -1538,7 +1580,8 @@ vector<INT> RoomPattern_8::Get_FreeDirections()
     return FreeDirections;
 }
 
-vector<DOUBLE> RoomPattern_8::Get_RoomCellsCoordinates()
+vector<DOUBLE>
+RoomPattern_8::Get_RoomCellsCoordinates()
 {
     vector<DOUBLE> CellsCoordinates;
     for(INT i = 0; i < 4; i++)
@@ -1548,7 +1591,8 @@ vector<DOUBLE> RoomPattern_8::Get_RoomCellsCoordinates()
     return CellsCoordinates;
 }
 
-INT RoomPattern_8::Get_SerialNumber()
+INT
+RoomPattern_8::Get_SerialNumber()
 {
     return *_SerialNumber;
 }

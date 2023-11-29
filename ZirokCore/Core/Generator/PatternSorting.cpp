@@ -3,7 +3,7 @@
 
 /*
  * vector<INT>
- * Generator::TestingAndSortingPatterns()
+ * Generator::TestAndSortPatterns()
  *
  * We can use this method to fill a vector with patterns that can become patterns
  *      for the next child room based on free space in the chosen direction.
@@ -17,8 +17,8 @@
 */
 
 vector<INT>
-Generator::TestingAndSortingPatterns(shared_ptr<BaseRoomPattern> Room,
-                                     INT Direction)
+Generator::TestAndSortPatterns(shared_ptr<BaseRoomPattern> Room,
+                               INT Direction)
 {
     vector<INT> SortedPatterns;
     INT Pattern = 0;

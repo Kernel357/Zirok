@@ -131,23 +131,31 @@ public:
     RoomPattern_3(INT SerialNumber);
     ~RoomPattern_3();
 
-    DOUBLE SetOrGet_RoomCellCoordinates(INT SetOrGet,
-                                        INT DoorNumber,
-                                        DOUBLE Coordinates);
+    DOUBLE
+    SetOrGet_RoomCellCoordinates(INT SetOrGet,
+                                 INT DoorNumber,
+                                 DOUBLE Coordinates);
 
-    INT Get_Pattern();
+    INT
+    Get_Pattern();
 
-    INT SetOrGet_RoomClass(INT SetOrGet,
-                           INT Class);
+    INT
+    SetOrGet_RoomClass(INT SetOrGet,
+                       INT Class);
 
-    INT SetOrGet_OpenDoor(INT SetOrGet,
-                          INT DoorNumber,
-                          INT DoorState);
+    INT
+    SetOrGet_OpenDoor(INT SetOrGet,
+                      INT DoorNumber,
+                      INT DoorState);
 
-    vector<INT> Get_FreeDirections();
-    vector<DOUBLE> Get_RoomCellsCoordinates();
+    vector<INT>
+    Get_FreeDirections();
 
-    INT Get_SerialNumber();
+    vector<DOUBLE>
+    Get_RoomCellsCoordinates();
+
+    INT
+    Get_SerialNumber();
 };
 
 
@@ -179,23 +187,31 @@ public:
     RoomPattern_4(INT SerialNumber);
     ~RoomPattern_4();
 
-    DOUBLE SetOrGet_RoomCellCoordinates(INT SetOrGet,
-                                        INT DoorNumber,
-                                        DOUBLE Coordinates);
+    DOUBLE
+    SetOrGet_RoomCellCoordinates(INT SetOrGet,
+                                 INT DoorNumber,
+                                 DOUBLE Coordinates);
 
-    INT Get_Pattern();
+    INT
+    Get_Pattern();
 
-    INT SetOrGet_RoomClass(INT SetOrGet,
-                           INT Class);
+    INT
+    SetOrGet_RoomClass(INT SetOrGet,
+                       INT Class);
 
-    INT SetOrGet_OpenDoor(INT SetOrGet,
-                          INT DoorNumber,
-                          INT DoorState);
+    INT
+    SetOrGet_OpenDoor(INT SetOrGet,
+                      INT DoorNumber,
+                      INT DoorState);
 
-    vector<INT> Get_FreeDirections();
-    vector<DOUBLE> Get_RoomCellsCoordinates();
+    vector<INT>
+    Get_FreeDirections();
 
-    INT Get_SerialNumber();
+    vector<DOUBLE>
+    Get_RoomCellsCoordinates();
+
+    INT
+    Get_SerialNumber();
 };
 
 
@@ -227,23 +243,31 @@ public:
     RoomPattern_5(INT SerialNumber);
     ~RoomPattern_5();
 
-    DOUBLE SetOrGet_RoomCellCoordinates(INT SetOrGet,
-                                        INT DoorNumber,
-                                        DOUBLE Coordinates);
+    DOUBLE
+    SetOrGet_RoomCellCoordinates(INT SetOrGet,
+                                 INT DoorNumber,
+                                 DOUBLE Coordinates);
 
-    INT Get_Pattern();
+    INT
+    Get_Pattern();
 
-    INT SetOrGet_RoomClass(INT SetOrGet,
-                           INT Class);
+    INT
+    SetOrGet_RoomClass(INT SetOrGet,
+                       INT Class);
 
-    INT SetOrGet_OpenDoor(INT SetOrGet,
-                          INT DoorNumber,
-                          INT DoorState);
+    INT
+    SetOrGet_OpenDoor(INT SetOrGet,
+                      INT DoorNumber,
+                      INT DoorState);
 
-    vector<INT> Get_FreeDirections();
-    vector<DOUBLE> Get_RoomCellsCoordinates();
+    vector<INT>
+    Get_FreeDirections();
 
-    INT Get_SerialNumber();
+    vector<DOUBLE>
+    Get_RoomCellsCoordinates();
+
+    INT
+    Get_SerialNumber();
 };
 
 
@@ -275,23 +299,31 @@ public:
     RoomPattern_6(INT SerialNumber);
     ~RoomPattern_6();
 
-    DOUBLE SetOrGet_RoomCellCoordinates(INT SetOrGet,
-                                        INT DoorNumber,
-                                        DOUBLE Coordinates);
+    DOUBLE
+    SetOrGet_RoomCellCoordinates(INT SetOrGet,
+                                 INT DoorNumber,
+                                 DOUBLE Coordinates);
 
-    INT Get_Pattern();
+    INT
+    Get_Pattern();
 
-    INT SetOrGet_RoomClass(INT SetOrGet,
+    INT
+    SetOrGet_RoomClass(INT SetOrGet,
                            INT Class);
 
-    INT SetOrGet_OpenDoor(INT SetOrGet,
-                          INT DoorNumber,
-                          INT DoorState);
+    INT
+    SetOrGet_OpenDoor(INT SetOrGet,
+                      INT DoorNumber,
+                      INT DoorState);
 
-    vector<INT> Get_FreeDirections();
-    vector<DOUBLE> Get_RoomCellsCoordinates();
+    vector<INT>
+    Get_FreeDirections();
 
-    INT Get_SerialNumber();
+    vector<DOUBLE>
+    Get_RoomCellsCoordinates();
+
+    INT
+    Get_SerialNumber();
 };
 
 
@@ -322,23 +354,31 @@ public:
     RoomPattern_7(INT SerialNumber);
     ~RoomPattern_7();
 
-    DOUBLE SetOrGet_RoomCellCoordinates(INT SetOrGet,
-                                        INT DoorNumber,
-                                        DOUBLE Coordinates);
+    DOUBLE
+    SetOrGet_RoomCellCoordinates(INT SetOrGet,
+                                 INT DoorNumber,
+                                 DOUBLE Coordinates);
 
-    INT Get_Pattern();
+    INT
+    Get_Pattern();
 
-    INT SetOrGet_RoomClass(INT SetOrGet,
-                           INT Class);
+    INT
+    SetOrGet_RoomClass(INT SetOrGet,
+                       INT Class);
 
-    INT SetOrGet_OpenDoor(INT SetOrGet,
-                          INT DoorNumber,
-                          INT DoorState);
+    INT
+    SetOrGet_OpenDoor(INT SetOrGet,
+                      INT DoorNumber,
+                      INT DoorState);
 
-    vector<INT> Get_FreeDirections();
-    vector<DOUBLE> Get_RoomCellsCoordinates();
+    vector<INT>
+    Get_FreeDirections();
 
-    INT Get_SerialNumber();
+    vector<DOUBLE>
+    Get_RoomCellsCoordinates();
+
+    INT
+    Get_SerialNumber();
 };
 
 
@@ -373,23 +413,31 @@ public:
     RoomPattern_8(INT SerialNumber);
     ~RoomPattern_8();
 
-    DOUBLE SetOrGet_RoomCellCoordinates(INT SetOrGet,
-                                        INT DoorNumber,
-                                        DOUBLE Coordinates);
+    DOUBLE
+    SetOrGet_RoomCellCoordinates(INT SetOrGet,
+                                 INT DoorNumber,
+                                 DOUBLE Coordinates);
 
-    INT Get_Pattern();
+    INT
+    Get_Pattern();
 
-    INT SetOrGet_RoomClass(INT SetOrGet,
-                           INT Class);
+    INT
+    SetOrGet_RoomClass(INT SetOrGet,
+                       INT Class);
 
-    INT SetOrGet_OpenDoor(INT SetOrGet,
-                          INT DoorNumber,
-                          INT DoorState);
+    INT
+    SetOrGet_OpenDoor(INT SetOrGet,
+                      INT DoorNumber,
+                      INT DoorState);
 
-    vector<INT> Get_FreeDirections();
-    vector<DOUBLE> Get_RoomCellsCoordinates();
+    vector<INT>
+    Get_FreeDirections();
 
-    INT Get_SerialNumber();
+    vector<DOUBLE>
+    Get_RoomCellsCoordinates();
+
+    INT
+    Get_SerialNumber();
 };
 
 #endif

@@ -61,6 +61,7 @@ def linux_build(TARGET, USE_LOG_FILE):
     return 0
     
 def win_build(TARGET, USE_LOG_FILE):
+    print("Unsupported PLATFORM")
     return 0
 
 main()

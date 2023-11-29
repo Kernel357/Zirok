@@ -48,6 +48,20 @@ Generator::TranslateCoordinates(INT ToCompressedOrToEditable,
     return 0;
 }
 
+
+/*
+ * DOUBLE
+ * Generator::IsOccupiedCoordinates()
+ *
+ * This method allows you to check that the coordinates are not already occupied by another room.
+ *
+ * @params:
+ *      DOUBLE Coordinates
+ *
+ * @return:
+ *      true OR false
+*/
+
 BOOL
 Generator::IsOccupiedCoordinates(DOUBLE Coordinates)
 {
@@ -62,6 +76,20 @@ Generator::IsOccupiedCoordinates(DOUBLE Coordinates)
 
     return false;
 }
+
+
+/*
+ * DOUBLE
+ * Generator::IsOutOfFieldCoordinates()
+ *
+ * This method allows you to check that the coordinates are not outside the field.
+ *
+ * @params:
+ *      DOUBLE Coordinates
+ *
+ * @return:
+ *      true OR false
+*/
 
 BOOL
 Generator::IsOutOfFieldCoordinates(DOUBLE Coordinates)

@@ -1,6 +1,5 @@
 /*Stub functions are stored here for now*/
 
-#include <cstdlib>
 #include "Core/Library/RandomLib/RandomLib.h"
 #include "Core/Library/DebugLib/DebugLib.h"
 

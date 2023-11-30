@@ -40,13 +40,12 @@ Generator::TestAndSortPatterns(shared_ptr<BaseRoomPattern> Room,
 
         Pattern = _IncludedPatterns.at(i);
 
-        if(Pattern == 1)
-        {
-            SortedPatterns.push_back(Pattern);
-            DebugPrintMessange(SERVICE_INFO, "Pattern: %d added to SortedPatterns\n", Pattern);
-        }
+        /*
+         * We will not check the first pattern, since this is not necessary - a free direction in itself implies that there is at least one free
+         * cell in this direction, which gives us the opportunity to place the room of the first pattern.
+         */
 
-        else if(Pattern == 2)
+        if(Pattern == 2)
         {
             if(*_CellIterator - 2 < 0)
             {
@@ -123,14 +122,6 @@ Generator::TestAndSortPatterns(shared_ptr<BaseRoomPattern> Room,
                     f = 2;
                 }
             }
-
-            if(*_Status != SUCCESS)
-            {
-                continue;
-            }
-
-            SortedPatterns.push_back(Pattern);
-            DebugPrintMessange(SERVICE_INFO, "Pattern: %d added to SortedPatterns\n", Pattern);
         }
 
         else if(Pattern == 3)
@@ -210,14 +201,6 @@ Generator::TestAndSortPatterns(shared_ptr<BaseRoomPattern> Room,
                     f = 2;
                 }
             }
-
-            if(*_Status != SUCCESS)
-            {
-                continue;
-            }
-
-            SortedPatterns.push_back(Pattern);
-            DebugPrintMessange(SERVICE_INFO, "Pattern: %d added to SortedPatterns\n", Pattern);
         }
 
         else if(Pattern == 4)
@@ -321,14 +304,6 @@ Generator::TestAndSortPatterns(shared_ptr<BaseRoomPattern> Room,
                     f = 3;
                 }
             }
-
-            if(*_Status != SUCCESS)
-            {
-                continue;
-            }
-
-            SortedPatterns.push_back(Pattern);
-            DebugPrintMessange(SERVICE_INFO, "Pattern: %d added to SortedPatterns\n", Pattern);
         }
 
         else if(Pattern == 5)
@@ -432,14 +407,6 @@ Generator::TestAndSortPatterns(shared_ptr<BaseRoomPattern> Room,
                     f = 3;
                 }
             }
-
-            if(*_Status != SUCCESS)
-            {
-                continue;
-            }
-
-            SortedPatterns.push_back(Pattern);
-            DebugPrintMessange(SERVICE_INFO, "Pattern: %d added to SortedPatterns\n", Pattern);
         }
 
         else if(Pattern == 6)
@@ -543,14 +510,6 @@ Generator::TestAndSortPatterns(shared_ptr<BaseRoomPattern> Room,
                     f = 3;
                 }
             }
-
-            if(*_Status != SUCCESS)
-            {
-                continue;
-            }
-
-            SortedPatterns.push_back(Pattern);
-            DebugPrintMessange(SERVICE_INFO, "Pattern: %d added to SortedPatterns\n", Pattern);
         }
 
         else if(Pattern == 7)
@@ -654,14 +613,6 @@ Generator::TestAndSortPatterns(shared_ptr<BaseRoomPattern> Room,
                     f = 3;
                 }
             }
-
-            if(*_Status != SUCCESS)
-            {
-                continue;
-            }
-
-            SortedPatterns.push_back(Pattern);
-            DebugPrintMessange(SERVICE_INFO, "Pattern: %d added to SortedPatterns\n", Pattern);
         }
 
         else if(Pattern == 8)
@@ -789,15 +740,15 @@ Generator::TestAndSortPatterns(shared_ptr<BaseRoomPattern> Room,
                     f = 4;
                 }
             }
-
-            if(*_Status != SUCCESS)
-            {
-                continue;
-            }
-
-            SortedPatterns.push_back(Pattern);
-            DebugPrintMessange(SERVICE_INFO, "Pattern: %d added to SortedPatterns\n", Pattern);
         }
+
+        if(*_Status != SUCCESS)
+        {
+            continue;
+        }
+
+        SortedPatterns.push_back(Pattern);
+        DebugPrintMessange(SERVICE_INFO, "Pattern: %d added to SortedPatterns\n", Pattern);
     }
 
     return SortedPatterns;

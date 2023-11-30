@@ -76,8 +76,7 @@ enum DEBUG_MESSANGE_TYPES
     ERROR                                                                   // Critical error.
 };
 
-extern std::vector<DEBUG_MESSANGE_TYPES> EnabledDebugMessangeTypes;         // You can change the contents of this vector, thereby configuring the logging levels.
-
+extern std::vector<DEBUG_MESSANGE_TYPES> EnabledDebugMessangeTypes;         // You can change the contents of this vector (InitBaseDef.cpp), thereby configuring the logging levels.
 
 
 /*=======

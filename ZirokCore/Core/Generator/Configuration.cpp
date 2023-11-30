@@ -109,7 +109,9 @@ Generator::VerifyParameter()
     DebugPrintMessange(INFO, "\nVerification parameter... \n");
 
     if(*_FieldSizeColumn <= 0 ||
+       *_FieldSizeColumn > 99 ||
        *_FieldSizeLine <= 0 ||
+       *_FieldSizeLine > 99 ||
        *_CellIterator <= 0)
     {
         *_Status = FIELD_SIZE_IS_NOT_VALID;
